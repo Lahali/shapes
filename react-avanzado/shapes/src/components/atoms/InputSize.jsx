@@ -5,20 +5,13 @@ import dimensions from '../styles/dimensions'
 export default function InputSize({
   inputWidth = dimensions.xxxl,
   handleSize,
-  // valueSize,
 }) {
   return (
-    <input
-      style={{ width: inputWidth }}
-      type="number"
-      // value={valueSize}
-      onChange={handleSize}
-    />
+    <input style={{ width: inputWidth }} type="number" onChange={handleSize} />
   )
 }
 
 InputSize.propTypes = {
   inputWidth: PropTypes.string,
   handleSize: PropTypes.func,
-  // valueSize: PropTypes.number,
 }

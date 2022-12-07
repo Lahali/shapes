@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Circle from './components/organisms/Circle'
 import Square from './components/organisms/Square'
 import Triangle from './components/organisms/Triangle'
@@ -10,6 +10,21 @@ function App() {
   const [circleSize, setCircleSize] = useState(100)
   const [squareColor, setSquareColor] = useState('#000000')
   const [squareSize, setSquareSize] = useState(100)
+
+  const compareSizeAndColor = () => {
+    if (triangleSize === squareSize && squareSize === circleSize) {
+      // eslint-disable-next-line no-alert, no-undef
+      alert('todo mide igual')
+    }
+    if (triangleColor === squareColor && squareColor === circleColor) {
+      // eslint-disable-next-line no-alert, no-undef
+      alert('todo tiene el mismo color')
+    }
+  }
+
+  useEffect(() => {
+    compareSizeAndColor()
+  })
 
   return (
     <div className="App">

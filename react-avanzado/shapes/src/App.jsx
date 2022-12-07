@@ -13,7 +13,7 @@ function App({ fontSize = dimensions.xl }) {
   const [squareColor, setSquareColor] = useState('#000000')
   const [squareSize, setSquareSize] = useState(100)
 
-  const compareSizeAndColor = () => {
+  useEffect(() => {
     if (triangleSize === squareSize && squareSize === circleSize) {
       // eslint-disable-next-line no-alert, no-undef
       alert('Todas las figuras tienen el mismo tamaño')
@@ -22,11 +22,14 @@ function App({ fontSize = dimensions.xl }) {
       // eslint-disable-next-line no-alert, no-undef
       alert('Todas las figuras tienen el mismo color')
     }
-  }
-
-  useEffect(() => {
-    compareSizeAndColor()
-  })
+  }, [
+    triangleColor,
+    squareColor,
+    circleColor,
+    triangleSize,
+    squareSize,
+    circleSize,
+  ])
 
   return (
     <div className="App">

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
+import dimensions from './components/styles/dimensions'
 import Circle from './components/organisms/Circle'
 import Square from './components/organisms/Square'
 import Triangle from './components/organisms/Triangle'
 
-function App() {
+function App({ fontSize = dimensions.xl }) {
   const [triangleSize, setTriangleSize] = useState(100)
   const [triangleColor, setTriangleColor] = useState('#000000')
   const [circleColor, setCircleColor] = useState('#000000')
@@ -14,11 +16,11 @@ function App() {
   const compareSizeAndColor = () => {
     if (triangleSize === squareSize && squareSize === circleSize) {
       // eslint-disable-next-line no-alert, no-undef
-      alert('todo mide igual')
+      alert('Todas las figuras tienen el mismo tamaño')
     }
     if (triangleColor === squareColor && squareColor === circleColor) {
       // eslint-disable-next-line no-alert, no-undef
-      alert('todo tiene el mismo color')
+      alert('Todas las figuras tienen el mismo color')
     }
   }
 
@@ -28,6 +30,9 @@ function App() {
 
   return (
     <div className="App">
+      <h1 style={{ marginLeft: '2rem', fontSize }}>
+        Ejercicio useState y useEffect.
+      </h1>
       <Triangle
         triangleSize={triangleSize}
         triangleColor={triangleColor}
@@ -51,3 +56,7 @@ function App() {
 }
 
 export default App
+
+App.propTypes = {
+  fontSize: PropTypes.string,
+}
